@@ -300,10 +300,15 @@
             if (green + red + blue < 600) {
                 aktuelColor = "red";
                 clearInterval(myTimer);
+                Death();
             }
             else {
                 aktuelColor = "black";
             }
+        }
+
+        function Death(){
+            newGame();
         }
 
     </script>
