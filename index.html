@@ -4,6 +4,7 @@
 <head>
 <script src="main.js"></script>
 <script src="CarControls.js"></script>
+<script>import {Player} from "main";</script>
 </head>
 
 <body onload="startAll()">
@@ -24,9 +25,10 @@
             </td>
         </tr>
     </table>
+    <div id="1"></div>
     <script>
         var myTimer;
-        var defaultRotatValue = 3;
+        var defaultRotatValue = 50;
         var defaultSpeedIncriment = 0.1;
         var defaultSpeedStart = 0.3;
         var speed = defaultSpeedStart;
@@ -38,6 +40,8 @@
         var ctx = c.getContext("2d");
         var Bane = new Image();
         var aktuelColor = "black";
+
+        
     </script>
 </body>
 

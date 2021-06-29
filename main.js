@@ -16,6 +16,20 @@ function Timer() {
     forward();
     drawEveryThing();
     timeCount++;
+    GA();
+}
+var distantFront;
+var distantLeft;
+var distantRight;
+function GA(){
+    if (distantRight < 100 && distantRight < distantLeft){
+        rotateCar(-defaultRotatValue);
+    }
+    else if (distantLeft < 100 && distantLeft < distantRight){
+        rotateCar(defaultRotatValue);
+    } else {
+
+    }
 }
 function newGame() {
     center = { x: 130, y: 65 };
@@ -146,7 +160,7 @@ function drawEveryThing() {
     var distFarward = farwardDistance();
     ctx.beginPath();
     ctx.lineWidth = "1";
-    ctx.strokeStyle = "lightBlue";
+    ctx.strokeStyle = "Blue";
     var justInFront = justInfrontfarwardDistance();
     ctx.moveTo(justInFront.x, justInFront.y);
     ctx.lineTo(distFarward.x, distFarward.y);
@@ -157,7 +171,7 @@ function drawEveryThing() {
     var distLeft = leftDistance();
     ctx.beginPath();
     ctx.lineWidth = "1";
-    ctx.strokeStyle = "lightGreen";
+    ctx.strokeStyle = "Green";
     ctx.moveTo(justInFront.x, justInFront.y);
     ctx.lineTo(distLeft.x, distLeft.y);
     ctx.stroke();
@@ -168,7 +182,7 @@ function drawEveryThing() {
     var distRight = rightDistance();
     ctx.beginPath();
     ctx.lineWidth = "1";
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "Red";
     ctx.moveTo(justInFront.x, justInFront.y);
     ctx.lineTo(distRight.x, distRight.y);
     ctx.stroke();
@@ -191,9 +205,9 @@ function drawEveryThing() {
     var xpos = 350;
     ctx.fillText("Car left = 'a'", xpos, 20);
     ctx.fillText("Car right = 'd'", xpos, 40);
-    var distantFront = dist(distFarward.x, distFarward.y, justInFront.x, justInFront.y);
-    var distantLeft = dist(distLeft.x, distLeft.y, justInFront.x, justInFront.y);
-    var distantRight = dist(distRight.x, distRight.y, justInFront.x, justInFront.y);
+    distantFront = dist(distFarward.x, distFarward.y, justInFront.x, justInFront.y);
+    distantLeft = dist(distLeft.x, distLeft.y, justInFront.x, justInFront.y);
+    distantRight = dist(distRight.x, distRight.y, justInFront.x, justInFront.y);
 
     ctx.fillText("Distance front = " + Math.ceil(distantFront), xpos, 70);
     ctx.fillText("Distance left = " + Math.ceil(distantLeft), xpos, 90);
